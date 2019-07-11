@@ -92,6 +92,8 @@ begin
     exit;
   if igPublisherFolder = '' then
     exit;
+  if edit1.Text='' then
+    exit;
 
 //  tempfolder := igContentFolder + '\temp';
 //  pagecontentfolder := igContentFolder + '\pagecontent';

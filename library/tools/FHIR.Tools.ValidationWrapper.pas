@@ -99,9 +99,9 @@ begin
 
   ts := TStringList.Create;
   try
-    FCache.ListPackageVersions('hl7.FHIR.Version.Validator', ts);
+    FCache.ListPackageVersions('hl7.fhir.version.validator', ts);
     if ts.Count > 0 then
-      FJarPath := path([FCache.Folder, 'hl7.FHIR.Version.Validator-'+ts[ts.Count-1], 'bin', 'org.hl7.fhir.validator.jar']);
+      FJarPath := path([FCache.Folder, 'hl7.fhir.version.validator#'+ts[ts.Count-1], 'bin', 'org.hl7.fhir.validator.jar']);
   finally
     ts.Free;
   end;
@@ -210,7 +210,7 @@ begin
   result := 'java -jar "'+FJarPath+'"';
   if FSource <> '' then
     result := result+' '+source;
-  result := result + ' -defn hl7.fhir.core-'+FVersion;
+  result := result + ' -defn hl7.fhir.core#'+FVersion;
 
   if FProfile <> '' then
     result := result+' -profile '+FProfile;
@@ -246,7 +246,7 @@ begin
     result := result+' '+source;
 
   if FMap <> '' then
-    result := result+' -transform '+FMap+' -defn hl7.fhir.core-'+FVersion;
+    result := result+' -transform '+FMap+' -defn hl7.fhir.core#'+FVersion;
 
   if FTxServer <> '' then
     result := result + ' -tx '+FtxServer;
