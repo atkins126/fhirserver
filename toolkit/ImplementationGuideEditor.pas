@@ -1057,7 +1057,7 @@ begin
     contentImport.mediaFolder := IGMediaFolder;
     contentImport.tempFolder := IGTempFolder;
 
-    contentImport.Edit1.text := edtPageNameURL.text;
+    contentImport.Edit1.text := changefileext(edtPageNameURL.text,'');
     contentImport.ShowModal;
     contentImport.Free;
 

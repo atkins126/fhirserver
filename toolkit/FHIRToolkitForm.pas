@@ -263,7 +263,7 @@ implementation
 
 uses
 {$IFDEF FHIR3} FHIR.R3.Factory; {$ENDIF}
-{$IFDEF FHIR4} FHIR.R4.Factory, ProjectFilesDialog, IGPublishSettings; {$ENDIF}
+{$IFDEF FHIR4} FHIR.R4.Factory, ProjectFilesDialog, IGPublishSettings, ScenarioRendering; {$ENDIF}
 
 procedure TMasterToolsForm.addFileToList(filename: String);
 var
@@ -1270,6 +1270,7 @@ end;
 procedure TMasterToolsForm.mnuPublishClick(Sender: TObject);
 var
   frame: TBaseResourceFrame;
+  esRender:TESRender;
   res: TFHIRResource;
   FSettings: TForm;
   str: string;
@@ -1311,6 +1312,34 @@ begin
           // pandocfolder := IGSettingsForm.pandocFolder;
         end;
         IGSettingsForm.Destroy;
+
+      end
+      {$ELSE}
+      raise Exception.Create('This is not supported in R3');
+      {$ENDIF}
+
+  end;
+  if (frame.resource is TFHIRExampleScenario) then
+  begin
+    {$IFDEF FHIR4}
+    if frame.filename = '' then
+      ShowMessage('File is not saved. Please save the file first.')
+    else
+      with frame as TExampleScenarioEditorFrame do
+      begin
+
+      esRender:=TESRender.create(self);
+      esRender.resource:=TFHIRExampleScenario(frame.resource);
+
+      if filename <> '' then
+      begin
+        esRender.ESRootFolder := extractfilepath(filename);
+        esRender.filename:=filename;
+      end;
+
+      esRender.showModal;
+      esRender.destroy;
+
 
       end
       {$ELSE}

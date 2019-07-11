@@ -131,6 +131,8 @@ begin
 
 
     imagefiles:= TDirectory.GetFiles(pandocfolder + '\media');
+    ForceDirectories(pwidechar(tempfolder + '\media'));
+
     for imgfile in imageFiles do
       TFile.copy(imgfile, tempfolder + '\'+edit1.text+'-'+extractfilename(imgfile));
 
@@ -215,7 +217,7 @@ begin
     try
       if directoryexists(tempfolder + '\media') then
       begin
-        sa := TDirectory.GetFiles(tempfolder + '\media');
+        sa := TDirectory.GetFiles(tempfolder);
         for i := 0 to Length(sa) - 1 do
         begin
           destfile := mediafolder + '\' + extractfilename(sa[i]);

@@ -2,8 +2,8 @@ object ESRender: TESRender
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 170
-  ClientWidth = 497
+  ClientHeight = 276
+  ClientWidth = 599
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
@@ -58,5 +58,17 @@ object ESRender: TESRender
     Text = 'Render'
     TextSettings.Font.StyleExt = {00070000000000000004000000}
     OnClick = Button10Click
+  end
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Position.X = 8.000000000000000000
+    Position.Y = 136.000000000000000000
+    Size.Width = 585.000000000000000000
+    Size.Height = 129.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 28
+    Viewport.Width = 581.000000000000000000
+    Viewport.Height = 125.000000000000000000
   end
 end

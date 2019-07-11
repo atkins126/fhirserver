@@ -274,7 +274,7 @@ type
     btnStep2: TCornerButton;
     btnOptionDown: TCornerButton;
     btnOptionUp: TCornerButton;
-    CornerButton4: TCornerButton;
+    btnESRender: TCornerButton;
     function addTVItem(TreeView: TTreeView; parent: TTreeViewItem; itemType, text: string; obj: tFHIRObject): TTreeViewItem;
     procedure btnActorClick(Sender: TObject);
     procedure btnOptionClick(Sender: TObject);
@@ -316,7 +316,7 @@ type
     procedure UpdateOperationClick(Sender: TObject);
     procedure btnOptionUpClick(Sender: TObject);
     procedure btnOptionDownClick(Sender: TObject);
-    procedure CornerButton4Click(Sender: TObject);
+    procedure btnESRenderClick(Sender: TObject);
 
   private
     selchanging : boolean;
@@ -495,10 +495,9 @@ begin
 end;
 
 
-procedure TExampleScenarioEditorFrame.CornerButton4Click(Sender: TObject);
+procedure TExampleScenarioEditorFrame.btnESRenderClick(Sender: TObject);
 var esRender:TESRender;
 begin
-
 
   esRender:=TESRender.create(self);
   esRender.resource:=TFHIRExampleScenario(resource);

@@ -253,11 +253,9 @@ begin
       begin
         btnLocalBuild.enabled := false;
         isBuilding := true;
-        sleep(1000);
+        sleep(100);
         SetupIGPublisherFiles;
-        // runAndWait(tempstr, 'BUILD', igRootFolder);
         RunInMemo('cmd.exe /C BUILD', tempstr, igRootFolder, Memo2);
-        // CaptureConsoleOutput(tempstr, 'cmd.exe /C BUILD', igRootFolder, Memo2);
         filestr := IGPublisherFolder + '\output\index.html';
         filestr := stringreplace(filestr, '\', '/', [rfReplaceAll, rfIgnoreCase]);
         if runAndWait(tempstr, filestr, '') = 0 then
