@@ -175,8 +175,8 @@ interface
 {$ENDIF}
 
 uses
-  Classes,
-  IdGlobal, IdException, IdYarn, IdTask, IdThreadSafe, SysUtils;
+  SysUtils, Types, Classes,
+  IdGlobal, IdException, IdYarn, IdTask, IdThreadSafe;
 
 const
   IdWaitAllThreadsTerminatedCount = 1 * 60 * 1000;
@@ -309,11 +309,11 @@ var
   // finalization can run and thus when the finalization accesses GThreadCount
   // in TerminateAll an error occurs. Moving this declaration to the interface
   // "fixes" it.
-  GThreadCount: TIdThreadSafeInteger = nil{$IFDEF HAS_DEPRECATED}{$IFDEF USE_SEMICOLON_BEFORE_DEPRECATED};{$ENDIF} deprecated{$ENDIF};
+  GThreadCount: TIdThreadSafeInteger = nil;
 
 // FHIR Server Additions
 type
-  TThreadEvent = procedure (name : AnsiString);
+  TThreadEvent = procedure (name : String);
 
 var
   fsThreadName : TThreadEvent;
@@ -389,12 +389,10 @@ begin
 end;
 
 procedure TIdThread.Execute;
-var
-  s : AnsiString;
 begin
   // FHIR Server Modification:
   if assigned(fsThreadName) then
-    fsThreadName(className);
+    fsThreadName(ClassName);
   try
     // Must make this call from INSIDE the thread. The call in Create
     // was naming the thread that was creating this thread. :(
@@ -491,7 +489,7 @@ begin
     end;
   finally
     if (assigned(fsThreadClose)) then
-      fsThreadClose(className);
+      fsThreadClose(ClassName);
   end;
 end;
 

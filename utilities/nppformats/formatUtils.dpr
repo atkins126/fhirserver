@@ -37,20 +37,13 @@ uses
   Messages,
   FHIR.Npp.BaseFU in 'npplib\FHIR.Npp.BaseFU.pas',
   FHIR.Npp.ScintillaFU in 'npplib\FHIR.Npp.ScintillaFU.pas',
-  FHIR.Support.Base in '..\..\library\Support\FHIR.Support.Base.pas',
-  FHIR.Support.Utilities in '..\..\library\Support\FHIR.Support.Utilities.pas',
-  FHIR.Support.Collections in '..\..\library\Support\FHIR.Support.Collections.pas',
-  FHIR.Support.Stream in '..\..\library\Support\FHIR.Support.Stream.pas',
-  FHIR.Support.Json in '..\..\library\Support\FHIR.Support.Json.pas',
-  FHIR.Support.Fpc in '..\..\library\Support\FHIR.Support.Fpc.pas',
-  FHIR.Support.Xml in '..\..\library\support\FHIR.Support.Xml.pas',
-  FHIR.Support.MXml in '..\..\library\support\FHIR.Support.MXml.pas',
   FHIR.Npp.FormatUtilities in 'FHIR.Npp.FormatUtilities.pas',
-  MarkdownDaringFireball in '..\..\..\markdown\source\MarkdownDaringFireball.pas',
-  MarkdownProcessor in '..\..\..\markdown\source\MarkdownProcessor.pas',
-  MarkdownCommonMark in '..\..\..\markdown\source\MarkdownCommonMark.pas',
-  MarkdownHTMLEntities in '..\..\..\markdown\source\MarkdownHTMLEntities.pas',
-  MarkdownUnicodeUtils in '..\..\..\markdown\source\MarkdownUnicodeUtils.pas';
+  MarkdownDaringFireball in '..\..\..\pascal\markdown\source\MarkdownDaringFireball.pas',
+  MarkdownProcessor in '..\..\..\pascal\markdown\source\MarkdownProcessor.pas',
+  MarkdownCommonMark in '..\..\..\pascal\markdown\source\MarkdownCommonMark.pas',
+  MarkdownHTMLEntities in '..\..\..\pascal\markdown\source\MarkdownHTMLEntities.pas',
+  MarkdownUnicodeUtils in '..\..\..\pascal\markdown\source\MarkdownUnicodeUtils.pas',
+  fsl_service_win in '..\..\library\fsl\fsl_service_win.pas';
 
 {$R *.res}
 

@@ -120,8 +120,10 @@
         <Manifest_File>(None)</Manifest_File>
         <DCC_ExeOutput>C:\Program Files\Notepad++\plugins\FormatUtils</DCC_ExeOutput>
         <Debugger_HostApplication>C:\Program Files\Notepad++\notepad++.exe</Debugger_HostApplication>
-        <DCC_DebugDCUs>true</DCC_DebugDCUs>
-        <DCC_UnitSearchPath>C:\work\fhirserver\dependencies\d64\debug;C:\work\fhirserver\library;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>..\..\library\fsl;..\..\library;C:\work\fhirserver\dependencies\Indy10\System;C:\work\fhirserver\dependencies\Indy10\Core;C:\work\fhirserver\dependencies\Indy10\Protocols;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_IntegerOverflowCheck>true</DCC_IntegerOverflowCheck>
+        <DCC_ImportedDataReferences>false</DCC_ImportedDataReferences>
+        <DCC_RangeChecking>true</DCC_RangeChecking>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -131,20 +133,13 @@
         <DCCReference Include="..\..\dependencies\FMM\FastMM4Messages.pas"/>
         <DCCReference Include="npplib\FHIR.Npp.BaseFU.pas"/>
         <DCCReference Include="npplib\FHIR.Npp.ScintillaFU.pas"/>
-        <DCCReference Include="..\..\library\Support\FHIR.Support.Base.pas"/>
-        <DCCReference Include="..\..\library\Support\FHIR.Support.Utilities.pas"/>
-        <DCCReference Include="..\..\library\Support\FHIR.Support.Collections.pas"/>
-        <DCCReference Include="..\..\library\Support\FHIR.Support.Stream.pas"/>
-        <DCCReference Include="..\..\library\Support\FHIR.Support.Json.pas"/>
-        <DCCReference Include="..\..\library\Support\FHIR.Support.Fpc.pas"/>
-        <DCCReference Include="..\..\library\support\FHIR.Support.Xml.pas"/>
-        <DCCReference Include="..\..\library\support\FHIR.Support.MXml.pas"/>
         <DCCReference Include="FHIR.Npp.FormatUtilities.pas"/>
-        <DCCReference Include="..\..\..\markdown\source\MarkdownDaringFireball.pas"/>
-        <DCCReference Include="..\..\..\markdown\source\MarkdownProcessor.pas"/>
-        <DCCReference Include="..\..\..\markdown\source\MarkdownCommonMark.pas"/>
-        <DCCReference Include="..\..\..\markdown\source\MarkdownHTMLEntities.pas"/>
-        <DCCReference Include="..\..\..\markdown\source\MarkdownUnicodeUtils.pas"/>
+        <DCCReference Include="..\..\..\pascal\markdown\source\MarkdownDaringFireball.pas"/>
+        <DCCReference Include="..\..\..\pascal\markdown\source\MarkdownProcessor.pas"/>
+        <DCCReference Include="..\..\..\pascal\markdown\source\MarkdownCommonMark.pas"/>
+        <DCCReference Include="..\..\..\pascal\markdown\source\MarkdownHTMLEntities.pas"/>
+        <DCCReference Include="..\..\..\pascal\markdown\source\MarkdownUnicodeUtils.pas"/>
+        <DCCReference Include="..\..\library\fsl\fsl_service_win.pas"/>
         <RcCompile Include="helloworldres.rc">
             <Form>helloworldres.res</Form>
         </RcCompile>
@@ -174,7 +169,6 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Platforms>
-                <Platform value="OSX64">False</Platform>
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">True</Platform>
             </Platforms>
